@@ -5,6 +5,7 @@ USE ieee.numeric_std.ALL;
 --seven segment display 00, 05, 10, 15, 20
 
 ENTITY sevseg IS
+    --entity
     PORT (
         clk : IN STD_LOGIC;
         data : out STD_LOGIC_VECTOR(3 DOWNTO 0);
