@@ -32,12 +32,12 @@ process (clk, reset)
 begin
     if (reset = '1') then
         current_state <= idle;
-    elsif (clk = '1' and clk'event) then
+    elsif (rising_edge(clk)) then
         current_state <= next_state;
     end if;
 end process;
 
-process (current_state, accumulate, price)
+process (current_state, accumulate, price, drink, size, account, money, sensor, done)
 begin
     case current_state is
         when idle =>
@@ -78,7 +78,7 @@ begin
             elsif (size = "10") then
                 next_state <= big;
             else
-                next_state <= pepsi;
+                next_state <= coke;
             end if;
         when small =>
             if (drink = '1') then
@@ -185,47 +185,44 @@ begin
             end if;
         when money_0 =>
             if (money = "0101") then
-                accumulate <= "00101";
                 next_state <= money_5;
             elsif(money = "1010") then
-                accumulate <= "01010";
                 next_state <= money_10;
             else
                 next_state <= money_0;
             end if;
-        when money_5 =>
+        when money_5 => 
+            accumulate <= "00101";
             if (done = '1') then
                 next_state <= check;
             else
                 if (money = "0101") then
                     next_state <= money_10;
                 elsif(money = "1010") then
-                    accumulate <= accumulate + money;
                     next_state <= money_15;
                 else
                     next_state <= money_5;
                 end if;
             end if;
         when money_10 =>
-        if (done = '1') then
-            next_state <= check;
-        else
-            if (money = "0101") then
-                accumulate <= accumulate + money;
-                next_state <= money_15;
-            elsif (money = "1010") then
-                accumulate <= accumulate + money;
-                next_state <= money_20;
-            else
-                next_state <= money_10;
-            end if;
-        end if;
-        when money_15 =>
+            accumulate <= "01010";
             if (done = '1') then
                 next_state <= check;
             else
                 if (money = "0101") then
-                    accumulate <= accumulate + money;
+                    next_state <= money_15;
+                elsif (money = "1010") then
+                    next_state <= money_20;
+                else
+                    next_state <= money_10;
+                end if;
+            end if;
+        when money_15 =>
+            accumulate <= "01111";
+            if (done = '1') then
+                next_state <= check;
+            else
+                if (money = "0101") then
                     next_state <= money_20;
                 else
                     next_state <= money_15;
@@ -247,8 +244,11 @@ begin
             end if;
         when dispense =>
             sodaOut <= '1';
-            change <= accumulate - price;
-            kembali <= '1';
+            if (accumulate > price) then
+                kembali <= '1';
+            else
+                kembali <= '0';
+            end if;
             next_state <= idle;
         when others =>
             null;
