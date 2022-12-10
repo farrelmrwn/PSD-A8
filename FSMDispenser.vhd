@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
+--FSMDispenser Machine
 entity FSMDispenser is
     port (
         clk   : in std_logic;
