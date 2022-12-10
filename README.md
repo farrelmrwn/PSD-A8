@@ -13,13 +13,13 @@ Soda Dispencing Machine will be written entirely in VHDL and it will have a lot 
  - Seven Segment to display the amount of money that will be paid
  - Selection of cup sizes
 
-#Tujuan
+# Tujuan
  - Mengimplementasikan bahasa VHDL ke barang yang biasa kita temukan sehari-hari.
  - Dapat membuat desain Finite State Machine menggunakan bahasa VHDL.
  - Bekerja sama dengan baik dalam membuat mesin dengan bahasa pemrograman VHDL.
  - Mengasah ilmu VHDL untuk bekal masa depan nanti.
 
-#Implementation
+# Implementation
 Tools yang digunakan pada project ini adalah : 
  - VSCode
  - ModelSim
@@ -31,7 +31,7 @@ State default dari Soda Dispensing Machine kami berada pada idle yang akan mener
 
 Setelah user memilih ukuran soda, maka harga total yang harus dibayarkan user akan ditampilkan pada display seven segment. Pada state ini user diminta untuk memasukan total uang yang sesuai dengan total yang ditampilkan display. Jika total uang sudah dibayarkan maka state akan berubah menjadi state dispensing dimana state ini akan menyajikan soda ke user. Namun ada cara pembayaran alternatif untuk user yaitu dengan member, jika user memilih cara pembayaran member setelah memilih ukuran soda maka state mesin akan langsung berubah ke dispensing.
 
-#Testing & Results
+# Testing & Results
 Using Test Bench :
 Test bench adalah sebuah metode yang dapat digunakan untuk mensimulasikan dan mengetes sebuah kode pada VHDL. Ciri khas dari Test Bench adalah pada bagian entity nya kosong, dan pada bagian architecture diberikan komponen yang berasal dari file vhd yang ingin di tes.
 
