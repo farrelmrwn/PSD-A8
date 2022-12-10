@@ -5,10 +5,12 @@ use ieee.math_real.all;
 
 entity adder is
     port (
-        
+        --input
         a : IN STD_LOGIC;
         b : IN STD_LOGIC;
+        --input carry
         c_in : IN STD_LOGIC;
+        --output
         sum : OUT STD_LOGIC;
         c_out : OUT STD_LOGIC
         
