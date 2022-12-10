@@ -1,6 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+--testbench for seven segment
+
 entity sevseg_tb is
 end entity;
 
