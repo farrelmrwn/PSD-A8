@@ -1,4 +1,7 @@
 # 🥤 SODA DISPENSING MACHINE 🥤
+
+Link Presentasi : https://drive.google.com/file/d/1iSPPpvSfiKa5ZpiD1M_ZijWXc8qi3XbA/view 
+
 Dalam dunia industri makanan dan minuman, tentunya memerlukan berbagai macam inovasi untuk dapat berjalan sesuai dengan majunya teknologi. Maka dari itu, kami dari kelompok A8 melakukan inovasi dalam industri ini, yaitu kami membuat Soda Dispensing Machine. 
 
 #Deskripsi Proyek
